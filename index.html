@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Feliz Dia das Mulheres ❤️</title>
+
+<style>
+
+body{
+background:linear-gradient(black,#1a001a);
+color:white;
+font-family:Arial;
+text-align:center;
+overflow:hidden;
+}
+
+h1{
+margin-top:80px;
+font-size:45px;
+color:#ff4da6;
+animation:pulse 2s infinite;
+}
+
+@keyframes pulse{
+0%{transform:scale(1);}
+50%{transform:scale(1.1);}
+100%{transform:scale(1);}
+}
+
+p{
+font-size:22px;
+margin:15px;
+}
+
+img{
+width:260px;
+border-radius:20px;
+margin-top:20px;
+box-shadow:0 0 25px pink;
+}
+
+#contador{
+font-size:26px;
+color:#ff99cc;
+margin-top:20px;
+}
+
+.flower{
+position:fixed;
+top:-50px;
+font-size:28px;
+animation:fall linear infinite;
+}
+
+@keyframes fall{
+to{
+transform:translateY(110vh);
+}
+}
+
+button{
+margin-top:30px;
+padding:15px 30px;
+font-size:20px;
+border:none;
+border-radius:10px;
+background:#ff4da6;
+color:white;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h1>Feliz Dia das Mulheres 💐</h1>
+
+<p>Você é a pessoa mais especial da minha vida ❤️</p>
+
+<div id="contador"></div>
+
+<img src="foto.jpg">
+
+<p>Obrigado por fazer parte da minha vida.</p>
+<p>Te amo muito 💗</p>
+
+<button onclick="tocar()">Clique para ouvir nossa música 🎵</button>
+
+<audio id="musica" loop>
+<source src="musica.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+
+/* data que começaram */
+
+var inicio = new Date("2024-08-01");
+
+function atualizar(){
+
+var hoje = new Date();
+
+var diff = hoje - inicio;
+
+var dias = Math.floor(diff/(1000*60*60*24));
+
+document.getElementById("contador").innerHTML =
+"Estamos juntos há " + dias + " dias ❤️";
+
+}
+
+setInterval(atualizar,1000);
+
+
+/* tocar música */
+
+function tocar(){
+document.getElementById("musica").play();
+}
+
+
+/* flores */
+
+function criarFlor(){
+
+var flor = document.createElement("div");
+
+flor.classList.add("flower");
+
+flor.innerHTML="🌸";
+
+flor.style.left=Math.random()*100+"vw";
+
+flor.style.animationDuration=(4+Math.random()*4)+"s";
+
+document.body.appendChild(flor);
+
+setTimeout(()=>{
+flor.remove();
+},8000);
+
+}
+
+setInterval(criarFlor,400);
+
+</script>
+
+</body>
+</html>
